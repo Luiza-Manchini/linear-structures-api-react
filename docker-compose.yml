@@ -1,0 +1,24 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: atividade4-backend
+    environment:
+      PORT: 3001
+      FRONTEND_ORIGIN: http://localhost:5173
+    ports:
+      - "3001:3001"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: atividade4-frontend
+    environment:
+      VITE_API_URL: /api
+      VITE_API_PROXY_TARGET: http://backend:3001
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
