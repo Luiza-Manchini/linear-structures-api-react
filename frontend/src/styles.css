@@ -1,0 +1,246 @@
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #14213d;
+  background:
+    radial-gradient(circle at top left, rgba(244, 162, 97, 0.25), transparent 30%),
+    linear-gradient(180deg, #f9f7f3 0%, #edf2f4 100%);
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 9rem 0 3rem;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+  background: rgba(20, 33, 61, 0.92);
+  color: #f8f9fa;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar__inner {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.navbar__links a {
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  color: rgba(248, 249, 250, 0.82);
+  transition: background-color 0.2s ease;
+}
+
+.navbar__links a.active {
+  background: #f4a261;
+  color: #14213d;
+}
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(110px, 1fr));
+  gap: 0.75rem;
+  min-width: min(520px, 100%);
+}
+
+.stats-card {
+  border-radius: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stats-card strong,
+.message-box strong {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+}
+
+.stats-card span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  border-radius: 1.4rem;
+  padding: 1.5rem;
+  box-shadow: 0 18px 50px rgba(20, 33, 61, 0.08);
+}
+
+.page-title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.page-subtitle {
+  margin: 0 0 1.5rem;
+  color: #4f5d75;
+}
+
+.form-row {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.form-row.dual {
+  grid-template-columns: 1fr 1fr;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.75rem;
+}
+
+.action-button {
+  border: 0;
+  border-radius: 0.9rem;
+  padding: 0.9rem 1rem;
+  font-weight: 600;
+  background: #14213d;
+  color: #f8f9fa;
+}
+
+.action-button.secondary {
+  background: #2a9d8f;
+}
+
+.action-button.danger {
+  background: #d62828;
+}
+
+.message-box {
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  margin-top: 1rem;
+}
+
+.message-box.success {
+  background: rgba(42, 157, 143, 0.14);
+  color: #1d5f56;
+}
+
+.message-box.error {
+  background: rgba(214, 40, 40, 0.14);
+  color: #8d1515;
+}
+
+.result-box {
+  margin-top: 1rem;
+  border-left: 4px solid #f4a261;
+  padding: 0.9rem 1rem;
+  background: #fff7f0;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.item-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.item-list li + li {
+  margin-top: 0.45rem;
+}
+
+.empty-state {
+  margin: 0;
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .navbar__inner,
+  .page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar__inner {
+    display: grid;
+  }
+
+  .stats-bar {
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding-top: 12rem;
+  }
+
+  .stats-bar,
+  .form-row.dual {
+    grid-template-columns: 1fr;
+  }
+}
